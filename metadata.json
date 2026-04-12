@@ -1,0 +1,5 @@
+{
+  "name": "Sakura Travel Guide 2026",
+  "description": "A minimalist, mobile-first travel companion for your Japan spring trip to Osaka, Kyoto, and Nagoya.",
+  "requestFramePermissions": ["geolocation"]
+}

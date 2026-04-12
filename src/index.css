@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif JP", serif;
+
+  --color-sage-50: #f4f7f4;
+  --color-sage-100: #e9eee9;
+  --color-sage-200: #d3dfd3;
+  --color-sage-300: #b0c4b0;
+  --color-sage-400: #8ba888;
+  --color-sage-500: #6b8a68;
+  --color-sage-600: #546d52;
+  --color-sage-700: #445842;
+  --color-sage-800: #384737;
+  --color-sage-900: #2f3b2e;
+  --color-sage-950: #192018;
+
+  --color-sakura-50: #fef7f8;
+  --color-sakura-100: #fdeef1;
+  --color-sakura-200: #fbdde3;
+  --color-sakura-300: #f7bec9;
+  --color-sakura-400: #f2d7d9;
+  --color-sakura-500: #e8a7b0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+body {
+  @apply antialiased selection:bg-sage-200;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
