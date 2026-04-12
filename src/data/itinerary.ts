@@ -69,11 +69,11 @@ export const ITINERARY_DATA: DayPlan[] = [
       {
         id: '1-4',
         type: 'food',
-        title: '可麗餅 中村屋',
+        title: '可樂餅 中村屋',
         location: '大阪府大阪市北區天神橋2-3-21',
         address: '大阪府大阪市北區天神橋2-3-21',
         insights: {
-          mustEat: ['原味可麗餅'],
+          mustEat: ['原味可樂餅'],
           tips: '天神橋筋商店街的人氣老店。'
         }
       },
@@ -92,7 +92,7 @@ export const ITINERARY_DATA: DayPlan[] = [
         id: '1-6',
         time: '20:00',
         type: 'food',
-        title: '晚餐：Yasai Kushimaki Naruto ya Ao',
+        title: 'Yasai Kushimaki Naruto ya Ao',
         location: '大阪府大阪市中央區難波千日前14-18',
         address: '大阪府大阪市中央區難波千日前14-18',
         insights: {
@@ -172,14 +172,14 @@ export const ITINERARY_DATA: DayPlan[] = [
         id: '3-2',
         time: '11:30',
         type: 'food',
-        title: '中餐：大鳥大社附近隨便吃',
+        title: '大鳥大社附近隨便吃',
         location: '大鳥大社附近'
       },
       {
         id: '3-3',
         time: '13:00',
         type: 'transport',
-        title: '前往 住吉大社',
+        title: '住吉大社',
         location: '住吉大社',
         transport: '鳳站-天王寺-住吉'
       },
@@ -195,7 +195,7 @@ export const ITINERARY_DATA: DayPlan[] = [
         id: '3-5',
         time: '21:00',
         type: 'food',
-        title: '晚餐：大阪燒 千房',
+        title: '大阪燒 千房',
         location: '大阪府大阪市中央區道頓堀1-5-5',
         address: '大阪府大阪市中央區道頓堀1-5-5',
         insights: {
@@ -280,7 +280,7 @@ export const ITINERARY_DATA: DayPlan[] = [
         id: '4-7',
         time: '19:00',
         type: 'food',
-        title: '晚餐：Ito Okashi',
+        title: 'Ito Okashi',
         location: '京都市中京區',
         address: '京都市中京區',
         insights: {
@@ -331,8 +331,8 @@ export const ITINERARY_DATA: DayPlan[] = [
         id: '5-3',
         time: '13:30',
         type: 'food',
-        title: '午餐：Tempura Kyorinsen',
-        location: '京都市',
+        title: 'Tempura Kyorinsen',
+        location: 'Tempura Kyorinsen',
         reservationCode: 'A466FC',
         note: '花之課程 (10道天婦羅)',
         insights: {
@@ -345,7 +345,7 @@ export const ITINERARY_DATA: DayPlan[] = [
         time: '15:00',
         type: 'sightseeing',
         title: '大山崎山莊美術館',
-        location: '京都府乙訓郡大山崎町',
+        location: 'アサヒグループ大山崎山荘美術館',
         note: '安藤忠雄建築',
         insights: {
           story: '由老建築與安藤忠雄設計的新館組成，收藏莫內《睡蓮》。',
