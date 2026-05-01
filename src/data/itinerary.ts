@@ -76,7 +76,6 @@ export const ITINERARY_DATA: DayPlan[] = [
         title: 'JR大阪站搭乘飯店接駁車',
         location: 'JR大阪站',
         insights: {
-          image: 'https://ais-dev-6gtbk2s7phqx535atkpa3f-370747766189.asia-northeast1.run.app/input_file_1.png',
           tips: '🚶‍♀️ 出站路線（最容易迷路的地方⚠️）\n👉在大阪站下車後：\n\nStep 1\n👉找「櫻橋口（Sakurabashi Exit）」\n👉不要走：\n❌ 中央口\n❌ 御堂筋口\n⸻\nStep 2\n👉出站後往「高架橋方向」走\n👉你會看到：\n • 飯店接駁車排隊處\n • 有標示 RIHGA Royal'
         }
       },
@@ -380,7 +379,6 @@ export const ITINERARY_DATA: DayPlan[] = [
         address: '〒601-8001 京都市南區東九條室町58號',
         transport: '搭計程車從知恩院抵達此處',
         insights: {
-          image: 'https://ais-dev-6gtbk2s7phqx535atkpa3f-370747766189.asia-northeast1.run.app/input_file_0.png',
           plan: 'EA型 (2400日圓) x 2輛 x 1天 = 4800日圓\n夜間時段還車 (400日圓) x 2輛 = 800日圓\n總共是 5600日圓',
           tips: '6點關店，所以我們可以幫您存放行李到當天晚上6點。如果您想租腳踏車到10點的話，可以利用我們店門前或京都站附近的行李寄放箱。'
         }
