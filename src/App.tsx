@@ -104,7 +104,7 @@ const ItineraryCard = ({ item }: { item: ItineraryItem; key?: string }) => {
       <div className="flex gap-4">
         <div className="flex flex-col items-center gap-1">
           <div className="text-xs font-mono text-gray-400">{item.time || '--:--'}</div>
-          <div className={`p-2 rounded-xl bg-opacity-10 ${item.type === 'food' ? 'bg-orange-100' : 'bg-sage-100'}`}>
+          <div className={`p-2 rounded-xl bg-opacity-10 ${item.type === 'food' ? 'bg-orange-100' : 'bg-sakura-100'}`}>
             <TypeIcon type={item.type} />
           </div>
         </div>
@@ -138,7 +138,7 @@ const ItineraryCard = ({ item }: { item: ItineraryItem; key?: string }) => {
             {(item.address || item.location) && (
               <button 
                 onClick={handleNavigate}
-                className="flex items-center gap-1 text-[11px] font-medium text-sage-600 bg-sage-50 px-3 py-1.5 rounded-full hover:bg-sage-100 transition-colors"
+                className="flex items-center gap-1 text-[11px] font-medium text-sakura-600 bg-sakura-50 px-3 py-1.5 rounded-full hover:bg-sakura-100 transition-colors"
               >
                 <Navigation className="w-3 h-3" />
                 導航
@@ -161,6 +161,17 @@ const ItineraryCard = ({ item }: { item: ItineraryItem; key?: string }) => {
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden mt-4 pt-4 border-t border-dashed border-gray-100"
           >
+            {item.insights.image && (
+              <div className="mb-4 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <img 
+                  src={item.insights.image} 
+                  alt={item.title} 
+                  className="w-full h-auto object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            )}
+
             {item.insights.story && (
               <div className="mb-3">
                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 flex items-center gap-1">
@@ -180,20 +191,6 @@ const ItineraryCard = ({ item }: { item: ItineraryItem; key?: string }) => {
                     {item.insights.mustEat.map(food => (
                       <span key={food} className="text-[10px] bg-orange-50 text-orange-600 px-1.5 py-0.5 rounded font-bold">
                         {food}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {item.insights.mustOrder && (
-                <div>
-                  <div className="text-[10px] font-bold text-amber-500 uppercase tracking-wider mb-1 flex items-center gap-1">
-                    <Star className="w-3 h-3" /> 必點菜單
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {item.insights.mustOrder.map(item => (
-                      <span key={item} className="text-[10px] bg-amber-50 text-amber-600 px-1.5 py-0.5 rounded font-bold">
-                        {item}
                       </span>
                     ))}
                   </div>
@@ -229,12 +226,21 @@ const ItineraryCard = ({ item }: { item: ItineraryItem; key?: string }) => {
               )}
             </div>
 
+            {item.insights.plan && (
+              <div className="mb-4 bg-blue-50/50 rounded-xl p-3 border border-blue-100/50">
+                <div className="text-[10px] font-bold text-blue-600 uppercase tracking-wider mb-1 flex items-center gap-1">
+                  <Ticket className="w-3 h-3" /> 租借方案
+                </div>
+                <p className="text-xs text-blue-700 whitespace-pre-wrap leading-relaxed">{item.insights.plan}</p>
+              </div>
+            )}
+
             {item.insights.tips && (
-              <div className="bg-sage-50/50 rounded-xl p-3">
-                <div className="text-[10px] font-bold text-sage-600 uppercase tracking-wider mb-1 flex items-center gap-1">
+              <div className="bg-sakura-50/50 rounded-xl p-3">
+                <div className="text-[10px] font-bold text-sakura-600 uppercase tracking-wider mb-1 flex items-center gap-1">
                   <Heart className="w-3 h-3" /> 攻略貼士
                 </div>
-                <p className="text-xs text-sage-700 italic">{item.insights.tips}</p>
+                <p className="text-xs text-sakura-700 whitespace-pre-wrap">{item.insights.tips}</p>
               </div>
             )}
           </motion.div>
@@ -258,11 +264,11 @@ export default function App() {
       <header className="sticky top-0 z-30 bg-[#FDFCF8]/80 backdrop-blur-md px-6 pt-8 pb-4">
         <div className="flex justify-between items-end mb-6">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900">Sakura Trip</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">花の盛りは一夜の夢</h1>
             <p className="text-xs text-gray-400 font-medium">2026 大阪・京都・名古屋</p>
           </div>
-          <div className="bg-sage-100 p-2 rounded-2xl">
-            <Calendar className="w-6 h-6 text-sage-600" />
+          <div className="bg-sakura-100 p-2 rounded-2xl">
+            <Calendar className="w-6 h-6 text-sakura-500" />
           </div>
         </div>
 
@@ -274,7 +280,7 @@ export default function App() {
               onClick={() => setSelectedDay(idx)}
               className={`flex-shrink-0 flex flex-col items-center justify-center w-14 h-16 rounded-2xl transition-all duration-300 ${
                 selectedDay === idx 
-                ? 'bg-sage-600 text-white shadow-lg shadow-sage-200 scale-105' 
+                ? 'bg-sakura-500 text-white shadow-lg shadow-sakura-200 scale-105' 
                 : 'bg-white text-gray-400 border border-gray-100'
               }`}
             >
@@ -297,8 +303,8 @@ export default function App() {
               {/* Day Info & Weather */}
               <div className="flex justify-between items-center mb-6 bg-white/50 rounded-2xl p-4 border border-white">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-sage-50 flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-sage-600" />
+                  <div className="w-10 h-10 rounded-full bg-sakura-50 flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-sakura-500" />
                   </div>
                   <div>
                     <h2 className="text-lg font-bold text-gray-800">{currentDay.location}</h2>
@@ -310,6 +316,32 @@ export default function App() {
                   <span className="text-sm font-bold text-gray-600">{currentDay.weather.temp}</span>
                 </div>
               </div>
+
+              {/* Day Note (Sticky Note) */}
+              {currentDay.dayNote && (
+                <div className="mb-6 bg-amber-50 rounded-2xl p-4 border border-amber-100 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-8 h-8 bg-amber-100 transform rotate-45 translate-x-4 -translate-y-4" />
+                  <div className="flex items-start gap-4">
+                    <div className="p-2.5 bg-amber-100/50 rounded-xl">
+                      <ExternalLink className="w-5 h-5 text-amber-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-bold text-amber-900 mb-0.5">{currentDay.dayNote.title}</h3>
+                      <p className="text-xs text-amber-700 leading-relaxed mb-2">{currentDay.dayNote.content}</p>
+                      {currentDay.dayNote.url && (
+                        <a 
+                          href={currentDay.dayNote.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-600 bg-white/50 px-3 py-1.5 rounded-lg border border-amber-200/50 active:scale-95 transition-transform"
+                        >
+                          開啟連結 <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Itinerary List */}
               <div className="relative">
@@ -376,7 +408,7 @@ export default function App() {
                         </a>
                         <button 
                           onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.address)}`, '_blank')}
-                          className="flex-1 flex items-center justify-center gap-2 bg-sage-50 text-sage-600 py-2 rounded-xl text-xs font-medium"
+                          className="flex-1 flex items-center justify-center gap-2 bg-sakura-50 text-sakura-500 py-2 rounded-xl text-xs font-medium"
                         >
                           <Navigation className="w-3 h-3" /> 導航
                         </button>
@@ -391,13 +423,21 @@ export default function App() {
                 <h2 className="text-lg font-bold mb-4 flex items-center gap-2 text-red-500">
                   <Phone className="w-5 h-5" /> 緊急聯絡
                 </h2>
-                <div className="bg-red-50 rounded-2xl p-4 border border-red-100">
-                  {INFO_DATA.emergency.map((contact, idx) => (
-                    <div key={contact.name} className={`flex justify-between items-center py-3 ${idx !== INFO_DATA.emergency.length - 1 ? 'border-bottom border-red-100' : ''}`}>
-                      <span className="text-sm font-medium text-red-800">{contact.name}</span>
-                      <a href={`tel:${contact.number}`} className="text-sm font-bold text-red-600 flex items-center gap-1">
-                        {contact.number} <ChevronRight className="w-4 h-4" />
-                      </a>
+                <div className="bg-red-50 rounded-2xl p-2 border border-red-100 divide-y divide-red-100">
+                  {INFO_DATA.emergency.map((contact) => (
+                    <div key={contact.name} className="p-3">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-bold text-red-800">{contact.name}</span>
+                        <a href={`tel:${contact.number}`} className="text-sm font-bold text-red-600 flex items-center gap-1">
+                          {contact.number} <ChevronRight className="w-4 h-4" />
+                        </a>
+                      </div>
+                      {(contact as any).address && (
+                        <p className="text-[10px] text-red-700/70 mb-1 leading-tight">{(contact as any).address}</p>
+                      )}
+                      {(contact as any).note && (
+                        <p className="text-[10px] text-red-600 font-medium italic">{(contact as any).note}</p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -409,11 +449,11 @@ export default function App() {
 
       {/* Bottom Navigation */}
       <nav className="fixed bottom-6 left-6 right-6 z-50">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-2 shadow-2xl shadow-sage-200/50 border border-white flex gap-2">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-2 shadow-2xl shadow-sakura-100/50 border border-white flex gap-2">
           <button
             onClick={() => setActiveTab('itinerary')}
             className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl transition-all duration-300 ${
-              activeTab === 'itinerary' ? 'bg-sage-600 text-white shadow-lg shadow-sage-200' : 'text-gray-400'
+              activeTab === 'itinerary' ? 'bg-sakura-500 text-white shadow-lg shadow-sakura-200' : 'text-gray-400'
             }`}
           >
             <Calendar className="w-5 h-5" />
@@ -422,7 +462,7 @@ export default function App() {
           <button
             onClick={() => setActiveTab('info')}
             className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl transition-all duration-300 ${
-              activeTab === 'info' ? 'bg-sage-600 text-white shadow-lg shadow-sage-200' : 'text-gray-400'
+              activeTab === 'info' ? 'bg-sakura-500 text-white shadow-lg shadow-sakura-200' : 'text-gray-400'
             }`}
           >
             <Info className="w-5 h-5" />
